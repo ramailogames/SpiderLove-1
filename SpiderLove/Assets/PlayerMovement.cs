@@ -105,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(.05f);
 
         rb.velocity = new Vector2(-horizontalMovementDirection * launchXSpeed, launchYSpeed);
-        //horizontalMovementDirection *= -1;
+        horizontalMovementDirection *= -1;
        //anim.SetBool("inAir", true);
         yield return new WaitForSeconds(.5f);
 
@@ -142,6 +142,7 @@ public class PlayerMovement : MonoBehaviour
         if (checkGround)
         {
             anim.SetBool("inAir", false);
+            return;
         }
         else
         {
