@@ -212,7 +212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1797899221149905734, guid: cac015989fde8ed438b640b26b9490f9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 23.39
+      value: 21.41
       objectReference: {fileID: 0}
     - target: {fileID: 1797899221149905734, guid: cac015989fde8ed438b640b26b9490f9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2653,9 +2653,9 @@ MonoBehaviour:
   anim: {fileID: 592559875}
   dashSpeed: 40
   launchXSpeed: 7
-  launchXWallSpeed: 20
+  launchXWallSpeed: 8
   launchYSpeed: 22
-  launchYWallSpeed: 40
+  launchYWallSpeed: 30
   wallSlideSpeed: 4
   gravityScale: 4
   checkGroundPos: {fileID: 813040194}

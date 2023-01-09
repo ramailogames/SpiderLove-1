@@ -32,7 +32,9 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask whatIsGround;
     public LayerMask whatIsWall;
     bool checkWall;
-
+    bool isTouchingScreen = false;
+    bool canWallJump = false;
+    bool isWallJumping = false;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -41,11 +43,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+      
         if (Input.GetMouseButtonDown(0))
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-
+                isTouchingScreen = true;
 
                 if (Input.mousePosition.x < Screen.width / 2)
                 {
@@ -53,7 +54,6 @@ public class PlayerMovement : MonoBehaviour
                     FlipLeft();
                     if (checkWall)
                     {
-                        WallDash();
                         return;
                     }
                    
@@ -68,17 +68,28 @@ public class PlayerMovement : MonoBehaviour
                     FlipRight();
                     if (checkWall)
                     {
-                        WallDash();
                         return;
                     }
-                  
                     Dash();
 
                 }
 
-            }
-            // Dash();
         }
+        
+        if(Input.GetMouseButtonUp(0))
+        {
+            isTouchingScreen = false;
+
+            if (canWallJump)
+            {
+                Debug.Log("wall jumping");
+                WallDash();
+            }
+
+           
+        }
+            // Dash();
+      
 
      
 
@@ -105,7 +116,18 @@ public class PlayerMovement : MonoBehaviour
 
     public void WallDash()
     {
-        rb.velocity = new Vector2(horizontalMovementDirection * launchXWallSpeed, launchYWallSpeed);
+        StartCoroutine(EnumWallDash());
+       
+    }
+
+    IEnumerator EnumWallDash()
+    {
+        isWallJumping = true;
+        rb.velocity = new Vector2(-horizontalMovementDirection * launchXWallSpeed, launchYWallSpeed);
+        horizontalMovementDirection *= -1;
+        yield return new WaitForSeconds(0.5f);
+        canWallJump = false;
+        isWallJumping = false;
     }
 
     public void Launch()
@@ -171,9 +193,18 @@ public class PlayerMovement : MonoBehaviour
 
         if (checkWall)
         {
-            rb.velocity = new Vector2(rb.velocity.x, 0);
+            if (!isTouchingScreen && !canWallJump && !isWallJumping)
+            {
+                Launch();
+                return;
+            }
+            if (isTouchingScreen)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, 0);
+            }
             anim.SetBool("wallSliding", true);
             rb.gravityScale = wallSlideSpeed;
+            canWallJump = true;
         }
         else
         {
