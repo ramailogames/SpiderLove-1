@@ -13,7 +13,9 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement")]
     public float dashSpeed;
     public float launchXSpeed;
+    public float launchXWallSpeed;
     public float launchYSpeed;
+    public float launchYWallSpeed;
     public float wallSlideSpeed;
     public float gravityScale;
 
@@ -29,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     public float checkRadius;
     public LayerMask whatIsGround;
     public LayerMask whatIsWall;
+    bool checkWall;
 
     private void Awake()
     {
@@ -48,6 +51,12 @@ public class PlayerMovement : MonoBehaviour
                 {
                     //left
                     FlipLeft();
+                    if (checkWall)
+                    {
+                        WallDash();
+                        return;
+                    }
+                   
                     Dash();
 
 
@@ -57,6 +66,12 @@ public class PlayerMovement : MonoBehaviour
                 {
                     //right
                     FlipRight();
+                    if (checkWall)
+                    {
+                        WallDash();
+                        return;
+                    }
+                  
                     Dash();
 
                 }
@@ -86,6 +101,11 @@ public class PlayerMovement : MonoBehaviour
     {
       
         rb.velocity = new Vector2(horizontalMovementDirection * dashSpeed, 0);
+    }
+
+    public void WallDash()
+    {
+        rb.velocity = new Vector2(horizontalMovementDirection * launchXWallSpeed, launchYWallSpeed);
     }
 
     public void Launch()
@@ -137,7 +157,7 @@ public class PlayerMovement : MonoBehaviour
     void CheckSurroundings()
     {
         bool checkGround = Physics2D.OverlapCircle(checkGroundPos.position, checkRadius, whatIsGround);
-        bool checkWall = Physics2D.OverlapCircle(checkWallPos.position, checkRadius, whatIsWall);
+        checkWall = Physics2D.OverlapCircle(checkWallPos.position, checkRadius, whatIsWall);
 
         if (checkGround)
         {
@@ -151,6 +171,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (checkWall)
         {
+            rb.velocity = new Vector2(rb.velocity.x, 0);
             anim.SetBool("wallSliding", true);
             rb.gravityScale = wallSlideSpeed;
         }

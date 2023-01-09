@@ -14,7 +14,7 @@ TagManager:
   - Player
   - Ground
   - Wall
-  - 
+  - Spikes
   - 
   - 
   - 
@@ -41,6 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 2569425681
+    locked: 0
   - name: Player
     uniqueID: 4284690391
+    locked: 0
+  - name: Vfx
+    uniqueID: 1513802305
     locked: 0
