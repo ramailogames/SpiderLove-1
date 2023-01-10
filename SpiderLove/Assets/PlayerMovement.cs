@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -50,7 +51,12 @@ public class PlayerMovement : MonoBehaviour
       
         if (Input.GetMouseButtonDown(0))
         {
-                isTouchingScreen = true;
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                Debug.Log("Pointer over ui");
+                return;
+            }
+            isTouchingScreen = true;
 
                 if (Input.mousePosition.x < Screen.width / 2)
                 {

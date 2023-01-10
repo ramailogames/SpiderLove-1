@@ -12,6 +12,7 @@ public class Spikes : MonoBehaviour
         {
             Instantiate(deathVfx, collision.transform.position, Quaternion.identity);
             Instantiate(eye, collision.transform.position, Quaternion.identity);
+            GameManager.instance.Gameover();
             Destroy(collision.gameObject);
         }
     }

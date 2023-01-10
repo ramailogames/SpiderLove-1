@@ -7,6 +7,7 @@ public class RamailoGamesScoreManager : MonoBehaviour
 {
     [Header("Gui")]
     public TextMeshProUGUI currentScoreTxt;
+    public TextMeshProUGUI currentScoreTxt_Gameover;
     public TextMeshProUGUI highScoreTxt;
 
 
@@ -35,6 +36,7 @@ public class RamailoGamesScoreManager : MonoBehaviour
         playedTime = 0;
 
         currentScoreTxt.text = currentScore.ToString() + " M";
+        currentScoreTxt_Gameover.text = currentScore.ToString() + " M";
     }
 
 
@@ -44,6 +46,7 @@ public class RamailoGamesScoreManager : MonoBehaviour
 
         RamailoGamesApiHandler.AddScore((int)amount);
         currentScoreTxt.text = currentScore.ToString() + " M";
+        currentScoreTxt_Gameover.text = currentScore.ToString() + " M";
 
     }
 
