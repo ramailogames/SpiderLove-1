@@ -33,8 +33,12 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask whatIsWall;
     bool checkWall;
     bool isTouchingScreen = false;
-    bool canWallJump = false;
+    [HideInInspector] public bool canWallJump = false;
     bool isWallJumping = false;
+
+
+
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
