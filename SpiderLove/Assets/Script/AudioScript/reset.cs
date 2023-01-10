@@ -9,7 +9,6 @@ public class reset : MonoBehaviour
     {
         FindObjectOfType<audiosettings>().Reset_();
         Time.timeScale = 1;
-        PlayerPrefs.SetInt("level", 1);
     }
 
   
