@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
 
+        AudioManagerCS.instance.Play("gameover");
         gameoverView.SetActive(true);
     }
 }

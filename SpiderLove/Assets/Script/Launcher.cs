@@ -35,4 +35,9 @@ public class Launcher : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, radius);
     }
 
+    public void LauncherSound()
+    {
+        AudioManagerCS.instance.Play("branchjump");
+    }
+
 }

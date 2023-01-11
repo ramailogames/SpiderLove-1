@@ -157,6 +157,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9065172550519365232, guid: cc885cbb3b259ad499fb63beeb3d4ff0, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3587370862540243290, guid: cc885cbb3b259ad499fb63beeb3d4ff0, type: 3}

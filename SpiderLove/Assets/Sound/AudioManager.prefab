@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &9108330670308682251
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5594712868838849172}
+  - component: {fileID: 829416236786275813}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5594712868838849172
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9108330670308682251}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &829416236786275813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9108330670308682251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0712d44462ab3bd44882ee6485c2b00c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: lovesong
+    clip: {fileID: 8300000, guid: c3abece4afc1ee6408aa353f2e5c64d6, type: 3}
+    volume: 1
+    pitch: 1
+    isLoop: 0
+    tag: 0
+    source: {fileID: 0}
+  - name: alert
+    clip: {fileID: 8300000, guid: 4c6df9b39c2f5c94cb0b42545fbe86f8, type: 3}
+    volume: 1
+    pitch: 1
+    isLoop: 0
+    tag: 0
+    source: {fileID: 0}
+  - name: kidnap
+    clip: {fileID: 8300000, guid: dc96cf7ecec5ec34098592e91b4d6421, type: 3}
+    volume: 1
+    pitch: 1
+    isLoop: 0
+    tag: 0
+    source: {fileID: 0}
+  - name: dive
+    clip: {fileID: 8300000, guid: 262d4275ec7be6c4fbb407c752bfae32, type: 3}
+    volume: 1
+    pitch: 1
+    isLoop: 0
+    tag: 0
+    source: {fileID: 0}
+  - name: peak
+    clip: {fileID: 8300000, guid: 803d4e41f6f3d844fbc65c2144db6b8e, type: 3}
+    volume: 1
+    pitch: 1
+    isLoop: 0
+    tag: 0
+    source: {fileID: 0}
+  - name: branchjump
+    clip: {fileID: 8300000, guid: 50bcc04da2d70784c95ce809f520725e, type: 3}
+    volume: 1
+    pitch: 1
+    isLoop: 0
+    tag: 0
+    source: {fileID: 0}
+  - name: yewhoo1
+    clip: {fileID: 8300000, guid: 0b28d4347322dee41902692758fc5954, type: 3}
+    volume: 1
+    pitch: 1
+    isLoop: 0
+    tag: 0
+    source: {fileID: 0}
+  - name: yewhoo2
+    clip: {fileID: 8300000, guid: 8abb69615ba186842ae67d7b697460ad, type: 3}
+    volume: 0.7
+    pitch: 1
+    isLoop: 0
+    tag: 0
+    source: {fileID: 0}
+  - name: death
+    clip: {fileID: 8300000, guid: b8789e6676cc46f419897dd1c97c739f, type: 3}
+    volume: 0.8
+    pitch: 1
+    isLoop: 0
+    tag: 0
+    source: {fileID: 0}
+  - name: splash
+    clip: {fileID: 8300000, guid: 5b1afae2f2f86764da2436845d9531ef, type: 3}
+    volume: 0.8
+    pitch: 1
+    isLoop: 0
+    tag: 0
+    source: {fileID: 0}
+  - name: gameover
+    clip: {fileID: 8300000, guid: 49110f01df841584bbcd7e6cbfbd3d6c, type: 3}
+    volume: 0.8
+    pitch: 1
+    isLoop: 0
+    tag: 0
+    source: {fileID: 0}

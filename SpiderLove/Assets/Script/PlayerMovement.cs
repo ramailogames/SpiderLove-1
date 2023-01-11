@@ -40,20 +40,60 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Character")]
     public Sprite[] charSprites;
-
+    public GameObject hat,ear,nose;
 
     int charInt;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        charInt = PlayerPrefs.GetInt("charInt");
+        //charInt = PlayerPrefs.GetInt("charInt");
+        SelectCharacter(SaveSettings.characterInt);
+        Debug.Log(SaveSettings.characterInt);
 
+        switch (SaveSettings.characterInt)
+        {
 
+            case 0:
+                hat.SetActive(false);
+                ear.SetActive(false);
+                nose.SetActive(false);
+                break;
+            case 1:
+                hat.SetActive(false);
+                ear.SetActive(true);
+                nose.SetActive(false);
+                break;
+            case 2:
+                hat.SetActive(false);
+                ear.SetActive(false);
+                nose.SetActive(true);
+                break;
+            case 3:
+                hat.SetActive(false);
+                ear.SetActive(false);
+                nose.SetActive(false);
+                break;
+            case 4:
+                hat.SetActive(false);
+                ear.SetActive(false);
+                nose.SetActive(false);
+                break;
+            case 5:
+                hat.SetActive(true);
+                ear.SetActive(false);
+                nose.SetActive(false);
+                break;
+        }
+
+    }
+    private void OnEnable()
+    {
+       
     }
 
     private void Start()
     {
-        SelectCharacter(charInt);
+        
     }
 
     private void Update()
@@ -145,6 +185,8 @@ public class PlayerMovement : MonoBehaviour
         isWallJumping = true;
         rb.velocity = new Vector2(-horizontalMovementDirection * launchXWallSpeed, launchYWallSpeed);
         horizontalMovementDirection *= -1;
+        int index = Random.Range(1, 3);
+        AudioManagerCS.instance.Play("yewhoo" + index);
         yield return new WaitForSeconds(0.5f);
         canWallJump = false;
         isWallJumping = false;
@@ -168,6 +210,7 @@ public class PlayerMovement : MonoBehaviour
 
         rb.velocity = new Vector2(-horizontalMovementDirection * launchXSpeed, launchYSpeed);
         horizontalMovementDirection *= -1;
+       
        //anim.SetBool("inAir", true);
         yield return new WaitForSeconds(.5f);
 

@@ -17,6 +17,7 @@ public class CharacterSelection : MonoBehaviour
     private void Start()
     {
         PlayerPrefs.SetInt("charInt", charInt);
+        SaveSettings.characterInt = charInt;
     }
 
     public void CharacterSelectionToggle()
@@ -64,6 +65,7 @@ public class CharacterSelection : MonoBehaviour
         }
         charInt--;
         PlayerPrefs.SetInt("charInt", charInt);
+        SaveSettings.characterInt = charInt;
         charImage.sprite = charList[charInt];
     }
 
@@ -76,6 +78,7 @@ public class CharacterSelection : MonoBehaviour
         }
         charInt++;
         PlayerPrefs.SetInt("charInt", charInt);
+        SaveSettings.characterInt = charInt;
         charImage.sprite = charList[charInt];
     }
 }

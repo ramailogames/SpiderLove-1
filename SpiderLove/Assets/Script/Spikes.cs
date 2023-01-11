@@ -12,6 +12,8 @@ public class Spikes : MonoBehaviour
         {
             Instantiate(deathVfx, collision.transform.position, Quaternion.identity);
             Instantiate(eye, collision.transform.position, Quaternion.identity);
+            AudioManagerCS.instance.Play("splash");
+            AudioManagerCS.instance.Play("death");
             GameManager.instance.Gameover();
             Destroy(collision.gameObject);
         }
