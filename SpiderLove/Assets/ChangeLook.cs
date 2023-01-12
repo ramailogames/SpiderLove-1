@@ -11,9 +11,19 @@ public class ChangeLook : MonoBehaviour
     public GameObject ear;
     private void OnMouseDown()
     {
+        if(PlayerPrefs.GetInt("hasPressedCustomize") == 1)
+        {
+            return;
+        }
+
+        PlayerPrefs.SetInt("hasPressedCustomize", 1);
         FindObjectOfType<CharacterSelection>().CharacterSelectionToggle();
     }
 
+    public void Close()
+    {
+        PlayerPrefs.SetInt("hasPressedCustomize", 0);
+    }
     private void Update()
     {
         Change();

@@ -98,8 +98,58 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-      
-        if (Input.GetMouseButtonDown(0))
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            isTouchingScreen = true;
+            if (touch.phase == TouchPhase.Began)
+            {
+                if (touch.position.x < Screen.width / 2)
+                {
+                    //left
+                    FlipLeft();
+                    if (checkWall)
+                    {
+                        return;
+                    }
+
+                    Dash();
+
+
+                }
+
+                if (touch.position.x > Screen.width / 2)
+                {
+                    //right
+                    FlipRight();
+                    if (checkWall)
+                    {
+                        return;
+                    }
+                    Dash();
+
+                }
+            }
+
+            if (touch.phase == TouchPhase.Stationary)
+            {
+                isTouchingScreen = true;
+            }
+
+            if (touch.phase == TouchPhase.Ended)
+            {
+                isTouchingScreen = false;
+
+                if (canWallJump)
+                {
+                    Debug.Log("wall jumping");
+                    WallDash();
+                }
+            }
+
+        }
+
+        /*if (Input.GetMouseButtonDown(0))
         {
             if (EventSystem.current.IsPointerOverGameObject())
             {
@@ -135,6 +185,9 @@ public class PlayerMovement : MonoBehaviour
                 }
 
         }
+
+       
+        
         
         if(Input.GetMouseButtonUp(0))
         {
@@ -147,7 +200,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
            
-        }
+        }*/
             // Dash();
       
 
