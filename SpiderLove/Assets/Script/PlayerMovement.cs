@@ -149,7 +149,7 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-        /*if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             if (EventSystem.current.IsPointerOverGameObject())
             {
@@ -200,7 +200,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
            
-        }*/
+        }
             // Dash();
       
 

@@ -11,7 +11,7 @@ public class RamailoGamesScoreManager : MonoBehaviour
     public TextMeshProUGUI highScoreTxt;
 
 
-    private float currentScore = 0;
+    [HideInInspector] public float currentScore = 0;
     [HideInInspector] public float playedTime = 0;
     bool fetch = true;
 

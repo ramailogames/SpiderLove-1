@@ -1,12 +1,13 @@
 {
   "dependencies": {
-    "com.ramailogames.scoreapi": "file:C:/Users/Akash/Desktop/scoreapi-main (2)/scoreapi-main",
+    "com.ramailogames.scoreapi": "file:C:/Users/Akash/Downloads/scoreapi-main (3)/scoreapi-main",
     "com.unity.cinemachine": "2.8.9",
     "com.unity.collab-proxy": "1.15.16",
     "com.unity.feature.2d": "1.0.0",
     "com.unity.ide.rider": "3.0.14",
     "com.unity.ide.visualstudio": "2.0.15",
     "com.unity.ide.vscode": "1.2.5",
+    "com.unity.nuget.newtonsoft-json": "3.0.2",
     "com.unity.postprocessing": "3.2.2",
     "com.unity.recorder": "4.0.0-pre.4",
     "com.unity.test-framework": "1.1.31",
