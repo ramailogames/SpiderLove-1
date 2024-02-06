@@ -9,9 +9,10 @@ public class RamailoGamesScoreManager : MonoBehaviour
     public TextMeshProUGUI currentScoreTxt;
     public TextMeshProUGUI currentScoreTxt_Gameover;
     public TextMeshProUGUI highScoreTxt;
+    public TextMeshProUGUI highScoreTxt_Gameover;
 
 
-    private float currentScore = 0;
+    [HideInInspector]public float currentScore = 0;
     [HideInInspector] public float playedTime = 0;
     bool fetch = true;
 
@@ -20,8 +21,13 @@ public class RamailoGamesScoreManager : MonoBehaviour
         currentScore = 0;
         playedTime = 0;
 
+        Invoke("FetechData", 0.1f);
+    }
+
+    void FetechData()
+    {
         if (fetch)
-        { 
+        {
             RamailoGamesApiHandler.UpdateHighScore(updateScore);
         }
         else
@@ -35,8 +41,7 @@ public class RamailoGamesScoreManager : MonoBehaviour
         currentScore = 0;
         playedTime = 0;
 
-        currentScoreTxt.text = currentScore.ToString() + " M";
-        currentScoreTxt_Gameover.text = currentScore.ToString() + " M";
+        currentScoreTxt.text = currentScore.ToString();
     }
 
 
@@ -45,14 +50,24 @@ public class RamailoGamesScoreManager : MonoBehaviour
         currentScore += amount;
 
         RamailoGamesApiHandler.AddScore((int)amount);
-        currentScoreTxt.text = currentScore.ToString() + " M";
-        currentScoreTxt_Gameover.text = currentScore.ToString() + " M";
+        currentScoreTxt.text = currentScore.ToString();
+        if(currentScoreTxt_Gameover != null)
+        {
+            currentScoreTxt_Gameover.text = currentScore.ToString();
+        }
+        
 
     }
 
     private void updateScore()
     {
         highScoreTxt.text = RamailoGamesApiHandler.highScore.ToString();
+
+        if(highScoreTxt_Gameover != null)
+        {
+            highScoreTxt_Gameover.text = RamailoGamesApiHandler.highScore.ToString();
+        }
+       
     }
 
   

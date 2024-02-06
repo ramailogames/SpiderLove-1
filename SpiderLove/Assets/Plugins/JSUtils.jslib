@@ -11,7 +11,12 @@
 		
 		
 	},
+GetParentURL: function() 
+	{
+		var parentURL = window.parent ? window.parent.location.href : null;
+        return allocate(intArrayFromString(parentURL), 'i8', ALLOC_NORMAL);
 
+    },
 	focusReturn: function() // Called by unity from Create Ad Button
 	{
 		window.focus();
