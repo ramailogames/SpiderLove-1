@@ -90,12 +90,29 @@
 
         canvas.style.width = window.innerWidth + 'px';
         canvas.style.height = window.innerHeight + 'px';
-      } else {
-        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
+        unityShowBanner('WebGL builds are not supported on mobile devices.');
+        // Hide unity-warning
+        var warning = document.querySelector("#unity-warning");
+        if (warning) {
+            warning.style.display = "none";
+        }
+      } else {
+       // Desktop style: Render the game canvas in a window that is centered and has the dimensions of a mobile screen:
+        var mobileScreenWidth = 375; // Adjust this value as needed for your target mobile screen width
+        var mobileScreenHeight = 667; // Adjust this value as needed for your target mobile screen height
+        // Calculate the position to center the canvas horizontally and vertically
+        var horizontalPosition = (window.innerWidth - mobileScreenWidth) / 2;
+        var verticalPosition = (window.innerHeight - mobileScreenHeight) / 2;
+        canvas.style.width = mobileScreenWidth + 'px';
+        canvas.style.height = mobileScreenHeight + 'px';
+        // Hide unity-footer
+        var footer = document.querySelector("#unity-footer");
+        if (footer) {
+        footer.style.display = "none";
+        }
       }
+
 
       loadingBar.style.display = "block";
 
